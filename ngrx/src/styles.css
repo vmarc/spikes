@@ -1,0 +1,6 @@
+.fields {
+  display: grid;
+  grid-template-columns: 5em 20em;
+  column-gap: 1em;
+  row-gap: 1em;
+}
