@@ -23,4 +23,5 @@ yarn add ag-grid-angular
 yarn add --dev eslint
 yarn add --dev @typescript-eslint/eslint-plugin eslint-plugin-prettier
 yarn add --dev prettier prettier-eslint eslint-config-prettier
+ng add @angular/localize
 ```

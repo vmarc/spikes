@@ -11,10 +11,12 @@ import { Table2Component } from './table2/table2.component';
 import { Table3Component } from './table3/table3.component';
 import { Table4Component } from './table4/table4.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MenuComponent } from './shared/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MenuComponent,
     Table1Component,
     Table2Component,
     Table3Component,

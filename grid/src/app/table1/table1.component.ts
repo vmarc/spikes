@@ -13,7 +13,11 @@ import { Component } from '@angular/core';
   `,
 })
 export class Table1Component {
-  readonly columnDefs = [{ field: 'make' }, { field: 'model' }, { field: 'price' }];
+  readonly columnDefs = [
+    { field: 'make', headerName: $localize`:@@table1.header.make:Make` },
+    { field: 'model', headerName: $localize`:@@table1.header.model:Model` },
+    { field: 'price', headerName: $localize`:@@table1.header.price:Price` },
+  ];
 
   readonly rowData = [
     { make: 'Toyota', model: 'Celica', price: 35000 },
