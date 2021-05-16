@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'grid-menu',
   template: `
     <nav mat-tab-nav-bar>
-      <a mat-tab-link routerLink="/table1" i18n="@@nav.table1">Table 1</a>
+      <a mat-tab-link routerLink="/networks" i18n="@@nav.networks">Networks</a>
       <a mat-tab-link routerLink="/table2" i18n="@@nav.table2">Table 2</a>
       <a mat-tab-link routerLink="/table3" i18n="@@nav.table3">Table 3</a>
       <a mat-tab-link routerLink="/table4" i18n="@@nav.table4">Table 4</a>
