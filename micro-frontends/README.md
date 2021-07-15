@@ -1,0 +1,1 @@
+Tryout micro frontends concept

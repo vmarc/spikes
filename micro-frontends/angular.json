@@ -1,0 +1,474 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "shell": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/shell",
+      "sourceRoot": "projects/shell/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/shell",
+            "index": "projects/shell/src/index.html",
+            "main": "projects/shell/src/main.ts",
+            "polyfills": "projects/shell/src/polyfills.ts",
+            "tsConfig": "projects/shell/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/shell/src/favicon.ico",
+              "projects/shell/src/assets"
+            ],
+            "styles": [
+              "projects/shell/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/shell/src/environments/environment.ts",
+                  "with": "projects/shell/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "shell:build",
+            "port": 4200
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shell:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shell:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shell/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-frontend-1": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/micro-frontend-1",
+      "sourceRoot": "projects/micro-frontend-1/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/micro-frontend-1",
+            "index": "projects/micro-frontend-1/src/index.html",
+            "main": "projects/micro-frontend-1/src/main.ts",
+            "polyfills": "projects/micro-frontend-1/src/polyfills.ts",
+            "tsConfig": "projects/micro-frontend-1/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/micro-frontend-1/src/favicon.ico",
+              "projects/micro-frontend-1/src/assets"
+            ],
+            "styles": [
+              "projects/micro-frontend-1/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/micro-frontend-1/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/micro-frontend-1/src/environments/environment.ts",
+                  "with": "projects/micro-frontend-1/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "extraWebpackConfig": "projects/micro-frontend-1/webpack.prod.config.js"
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "micro-frontend-1:build",
+            "port": 4210,
+            "extraWebpackConfig": "projects/micro-frontend-1/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "micro-frontend-1:build:production",
+              "extraWebpackConfig": "projects/micro-frontend-1/webpack.prod.config.js"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "micro-frontend-1:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/micro-frontend-1/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-frontend-2": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/micro-frontend-2",
+      "sourceRoot": "projects/micro-frontend-2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/micro-frontend-2",
+            "index": "projects/micro-frontend-2/src/index.html",
+            "main": "projects/micro-frontend-2/src/main.ts",
+            "polyfills": "projects/micro-frontend-2/src/polyfills.ts",
+            "tsConfig": "projects/micro-frontend-2/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/micro-frontend-2/src/favicon.ico",
+              "projects/micro-frontend-2/src/assets"
+            ],
+            "styles": [
+              "projects/micro-frontend-2/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/micro-frontend-2/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/micro-frontend-2/src/environments/environment.ts",
+                  "with": "projects/micro-frontend-2/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "extraWebpackConfig": "projects/micro-frontend-2/webpack.prod.config.js"
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "micro-frontend-2:build",
+            "port": 4220,
+            "extraWebpackConfig": "projects/micro-frontend-2/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "micro-frontend-2:build:production",
+              "extraWebpackConfig": "projects/micro-frontend-2/webpack.prod.config.js"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "micro-frontend-2:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/micro-frontend-2/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-frontend-3": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/micro-frontend-3",
+      "sourceRoot": "projects/micro-frontend-3/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/micro-frontend-3",
+            "index": "projects/micro-frontend-3/src/index.html",
+            "main": "projects/micro-frontend-3/src/main.ts",
+            "polyfills": "projects/micro-frontend-3/src/polyfills.ts",
+            "tsConfig": "projects/micro-frontend-3/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/micro-frontend-3/src/favicon.ico",
+              "projects/micro-frontend-3/src/assets"
+            ],
+            "styles": [
+              "projects/micro-frontend-3/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/micro-frontend-3/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/micro-frontend-3/src/environments/environment.ts",
+                  "with": "projects/micro-frontend-3/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "extraWebpackConfig": "projects/micro-frontend-3/webpack.prod.config.js"
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "micro-frontend-3:build",
+            "port": 4230,
+            "extraWebpackConfig": "projects/micro-frontend-3/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "micro-frontend-3:build:production",
+              "extraWebpackConfig": "projects/micro-frontend-3/webpack.prod.config.js"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "micro-frontend-3:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/micro-frontend-3/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-frontend-4": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/micro-frontend-4",
+      "sourceRoot": "projects/micro-frontend-4/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/micro-frontend-4",
+            "index": "projects/micro-frontend-4/src/index.html",
+            "main": "projects/micro-frontend-4/src/main.ts",
+            "polyfills": "projects/micro-frontend-4/src/polyfills.ts",
+            "tsConfig": "projects/micro-frontend-4/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/micro-frontend-4/src/favicon.ico",
+              "projects/micro-frontend-4/src/assets"
+            ],
+            "styles": [
+              "projects/micro-frontend-4/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/micro-frontend-4/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/micro-frontend-4/src/environments/environment.ts",
+                  "with": "projects/micro-frontend-4/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "extraWebpackConfig": "projects/micro-frontend-4/webpack.prod.config.js"
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "micro-frontend-4:build",
+            "port": 4240,
+            "extraWebpackConfig": "projects/micro-frontend-4/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "micro-frontend-4:build:production",
+              "extraWebpackConfig": "projects/micro-frontend-4/webpack.prod.config.js"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "micro-frontend-4:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/micro-frontend-4/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "shell"
+}
