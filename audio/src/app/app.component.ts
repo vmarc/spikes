@@ -85,7 +85,7 @@ export class AppComponent implements OnInit {
     this.play(this.currentClipIndex);
     this.countingInterval = setInterval(() => {
       this.currentClipIndex++;
-      if (this.currentClipIndex > this.numberClips.length) {
+      if (this.currentClipIndex >= this.numberClips.length) {
         this.currentClipIndex = 0;
       }
       this.play(this.currentClipIndex);
