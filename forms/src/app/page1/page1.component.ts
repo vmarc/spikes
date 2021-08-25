@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { FormGroupDirective } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+  Validators,
+} from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MessageService } from '../shared/message.service';
 import { Util } from '../shared/util';
@@ -31,7 +32,7 @@ import { Util } from '../shared/util';
       </p>
 
       <p>
-        <mat-checkbox [formControl]="selected"> Selected </mat-checkbox>
+        <mat-checkbox [formControl]="selected"> Selected</mat-checkbox>
       </p>
 
       <button
@@ -207,15 +208,19 @@ export class Page1Component {
 
   updateClasses1(): void {
     // eslint-disable-next-line no-underscore-dangle
-    this.firstNameClasses1 = this.firstNameFormField._elementRef.nativeElement.classList.value;
+    this.firstNameClasses1 =
+      this.firstNameFormField._elementRef.nativeElement.classList.value;
     // eslint-disable-next-line no-underscore-dangle
-    this.lastNameClasses1 = this.lastNameFormField._elementRef.nativeElement.classList.value;
+    this.lastNameClasses1 =
+      this.lastNameFormField._elementRef.nativeElement.classList.value;
   }
 
   updateClasses2(): void {
     // eslint-disable-next-line no-underscore-dangle
-    this.firstNameClasses2 = this.firstNameFormField._elementRef.nativeElement.classList.value;
+    this.firstNameClasses2 =
+      this.firstNameFormField._elementRef.nativeElement.classList.value;
     // eslint-disable-next-line no-underscore-dangle
-    this.lastNameClasses2 = this.lastNameFormField._elementRef.nativeElement.classList.value;
+    this.lastNameClasses2 =
+      this.lastNameFormField._elementRef.nativeElement.classList.value;
   }
 }
