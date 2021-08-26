@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
-    "extract-i18n": "ng extract-i18n --output-path src/locale && xliffmerge --profile xliffmerge.json"
+    "extract-i18n": "ng extract-i18n --output-path src/locale && xliffmerge --profile xliffmerge.json",
+    "prettier-check": "prettier --check --config .prettierrc --ignore-path .prettierignore --loglevel warn \"{**/*,*}.{js,ts}\""
   },
   "private": true,
   "dependencies": {
