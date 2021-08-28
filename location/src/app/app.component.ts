@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
-  selector: "app-root",
+  selector: 'app-root',
   template: `
     <div>
       Location
@@ -32,20 +32,20 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private start(): void {
     if (!navigator.geolocation) {
-      this.error = "Not supported by browser";
+      this.error = 'Not supported by browser';
       return;
     }
     if (this.watchId !== null) {
       this.stop();
     }
 
-    console.log("get position");
+    console.log('get position');
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(["position", position]);
-        this.positions.push(JSON.stringify(position, null, 2));
+        console.log(['position', position]);
+        this.positions.push(`${position.coords.latitude}, ${position.coords.longitude}`);
       }, err => {
-        console.log("error", err);
+        console.log('error', err);
         this.error = err.message;
       },
       {
@@ -53,12 +53,12 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     );
 
-    console.log("watch position");
+    console.log('watch position');
     this.watchId = navigator.geolocation.watchPosition(
       (position) => {
-        this.positions.push(JSON.stringify(position, null, 2));
+        this.positions.push(`${position.coords.latitude}, ${position.coords.longitude}`);
       }, err => {
-        console.log("error", err);
+        console.log('error', err);
         this.error = err.message;
       },
       {
