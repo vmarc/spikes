@@ -1,6 +1,6 @@
 PROXY_CONFIG = {
   "/tiles/**": {
-    "target": "https://experimental.knooppuntnet.nl",
+    "target": "https://knooppuntnet.nl",
     "changeOrigin": true,
     "secure": false
   }
