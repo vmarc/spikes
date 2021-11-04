@@ -1,0 +1,11 @@
+{
+  "locale": "nl",
+  "translations": {
+    "translations.one": "een {$INTERPOLATION} {$INTERPOLATION_1}",
+    "translations.two": "twee {$INTERPOLATION} {$INTERPOLATION_1}",
+    "translations.three": "drie",
+    "translations.six": "zes",
+    "translations.four": "vier",
+    "translations.five": "vijf {$first} {$second}"
+  }
+}
