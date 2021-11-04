@@ -1,11 +1,11 @@
 {
-  "locale": "en-US",
+  "locale": "en",
   "translations": {
-    "translations.four": "four",
-    "translations.two": "two {$INTERPOLATION}",
-    "translations.five": "five {$name}",
+    "translations.one": "one {$INTERPOLATION} {$INTERPOLATION_1}",
+    "translations.two": "two {$INTERPOLATION} {$INTERPOLATION_1}",
+    "translations.three": "three",
     "translations.six": " six ",
-    "translations.three": "three {$INTERPOLATION}:name:",
-    "translations.one": "one {$INTERPOLATION}"
+    "translations.four": "four",
+    "translations.five": "five {$first} {$second}"
   }
 }
