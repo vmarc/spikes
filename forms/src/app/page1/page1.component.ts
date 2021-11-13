@@ -207,20 +207,20 @@ export class Page1Component {
   }
 
   updateClasses1(): void {
-    // eslint-disable-next-line no-underscore-dangle
     this.firstNameClasses1 =
+      // eslint-disable-next-line no-underscore-dangle
       this.firstNameFormField._elementRef.nativeElement.classList.value;
-    // eslint-disable-next-line no-underscore-dangle
     this.lastNameClasses1 =
+      // eslint-disable-next-line no-underscore-dangle
       this.lastNameFormField._elementRef.nativeElement.classList.value;
   }
 
   updateClasses2(): void {
-    // eslint-disable-next-line no-underscore-dangle
     this.firstNameClasses2 =
+      // eslint-disable-next-line no-underscore-dangle
       this.firstNameFormField._elementRef.nativeElement.classList.value;
-    // eslint-disable-next-line no-underscore-dangle
     this.lastNameClasses2 =
+      // eslint-disable-next-line no-underscore-dangle
       this.lastNameFormField._elementRef.nativeElement.classList.value;
   }
 }
