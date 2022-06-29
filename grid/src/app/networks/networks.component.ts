@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NetworksService } from './networks.service';
 
 @Component({
-  selector: 'grid-table1',
+  selector: 'grid-networks',
   template: `
     <h1>Networks</h1>
     <div *ngIf="response$ | async as response">
