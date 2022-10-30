@@ -30,7 +30,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         authorizationRequestRepository.retrieveCookie(authenticationRequest).ifPresent(oAuthCookieData -> {
             final DefaultOAuth2User user = (DefaultOAuth2User) authentication.getPrincipal();
             final String name = user.getName();
-            final String cookie = Cookies.build("kpn-user", name, Duration.of(1, ChronoUnit.YEARS));
+            final String cookie = Cookies.build("kpn-user", name, Duration.of(365, ChronoUnit.DAYS));
             authorizationRequestRepository.removeCookie(response);
             response.addHeader(HttpHeaders.SET_COOKIE, cookie);
             final String successUrl = oAuthCookieData.getSuccessUrl();

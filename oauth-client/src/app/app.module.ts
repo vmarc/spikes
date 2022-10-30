@@ -5,8 +5,8 @@ import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {AuthorizedComponent} from './authorized.component';
-import {DetailsComponent} from './details.component';
 import {HomeComponent} from './home.component';
+import {InfoComponent} from './info.component';
 import {LoginFailedComponent} from './login-failed.component';
 import {LoginSuccessComponent} from './login-success.component';
 
@@ -14,7 +14,7 @@ import {LoginSuccessComponent} from './login-success.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent,
+    InfoComponent,
     AuthorizedComponent,
     LoginFailedComponent,
     LoginSuccessComponent,
