@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
@@ -41,12 +41,12 @@ import { selectPage6State } from './store/page6.selectors';
   `,
 })
 export class Page6Component {
-  readonly field1 = new FormControl('', Validators.required);
-  readonly field2 = new FormControl('', Validators.required);
-  readonly field3 = new FormControl('', Validators.required);
-  readonly field4 = new FormControl('', Validators.required);
+  readonly field1 = new UntypedFormControl('', Validators.required);
+  readonly field2 = new UntypedFormControl('', Validators.required);
+  readonly field3 = new UntypedFormControl('', Validators.required);
+  readonly field4 = new UntypedFormControl('', Validators.required);
 
-  readonly form = new FormGroup({
+  readonly form = new UntypedFormGroup({
     field1: this.field1,
     field2: this.field2,
     field3: this.field3,

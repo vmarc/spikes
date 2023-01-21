@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { OnDestroy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ControlContainer } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-sub-1',
@@ -20,12 +20,12 @@ import { FormGroup } from '@angular/forms';
   `,
 })
 export class Sub1Component implements OnDestroy {
-  readonly field11 = new FormControl('', Validators.required);
-  readonly field12 = new FormControl('', Validators.required);
-  private readonly formGroup: FormGroup;
+  readonly field11 = new UntypedFormControl('', Validators.required);
+  readonly field12 = new UntypedFormControl('', Validators.required);
+  private readonly formGroup: UntypedFormGroup;
 
   constructor(private controlContainer: ControlContainer) {
-    this.formGroup = controlContainer.control as FormGroup;
+    this.formGroup = controlContainer.control as UntypedFormGroup;
     this.formGroup.registerControl('field11', this.field11);
     this.formGroup.registerControl('field12', this.field12);
   }

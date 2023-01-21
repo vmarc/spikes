@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sub-5',
@@ -19,14 +19,14 @@ import { FormControl } from '@angular/forms';
   `,
 })
 export class Sub5Component implements OnInit {
-  field3: FormControl;
-  field4: FormControl;
+  field3: UntypedFormControl;
+  field4: UntypedFormControl;
 
   constructor(private controlContainer: ControlContainer) {}
 
   ngOnInit(): void {
-    const formGroup = this.controlContainer.control as FormGroup;
-    this.field3 = formGroup.get('field3') as FormControl;
-    this.field4 = formGroup.get('field4') as FormControl;
+    const formGroup = this.controlContainer.control as UntypedFormGroup;
+    this.field3 = formGroup.get('field3') as UntypedFormControl;
+    this.field4 = formGroup.get('field4') as UntypedFormControl;
   }
 }

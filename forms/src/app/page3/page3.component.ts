@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { ValidatorFn } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Util } from '../shared/util';
@@ -82,7 +82,7 @@ class Row {
 export class Page3Component implements OnInit {
   readonly displayedColumns: string[] = ['name'];
   readonly dataSource: MatTableDataSource<Row> = new MatTableDataSource();
-  readonly form = new FormGroup({}, this.tableValidator(this.dataSource));
+  readonly form = new UntypedFormGroup({}, this.tableValidator(this.dataSource));
 
   readonly util = Util;
 

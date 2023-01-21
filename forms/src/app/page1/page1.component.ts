@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import {
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
@@ -156,17 +156,17 @@ export class Page1Component {
   firstNameClasses2 = '';
   lastNameClasses2 = '';
 
-  readonly firstName = new FormControl('', [
+  readonly firstName = new UntypedFormControl('', [
     this.firstNameValidator(),
     Validators.required,
   ]);
-  readonly lastName = new FormControl('', [
+  readonly lastName = new UntypedFormControl('', [
     this.lastNameValidator(),
     Validators.required,
   ]);
-  readonly selected = new FormControl(null, [Validators.required]);
+  readonly selected = new UntypedFormControl(null, [Validators.required]);
 
-  readonly form = new FormGroup({
+  readonly form = new UntypedFormGroup({
     firstName: this.firstName,
     lastName: this.lastName,
     selected: this.selected,

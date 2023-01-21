@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { MessageService } from '../shared/message.service';
 import { Util } from '../shared/util';
@@ -93,10 +93,10 @@ export class Page2Component {
   firstNameClasses2 = '';
   lastNameClasses2 = '';
 
-  readonly firstName = new FormControl('', Validators.required);
-  readonly lastName = new FormControl('', Validators.required);
+  readonly firstName = new UntypedFormControl('', Validators.required);
+  readonly lastName = new UntypedFormControl('', Validators.required);
 
-  readonly form = new FormGroup({
+  readonly form = new UntypedFormGroup({
     firstName: this.firstName,
     lastName: this.lastName,
   });

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { FormGroupDirective } from '@angular/forms';
 import { Util } from './util';
 
@@ -22,7 +22,7 @@ import { Util } from './util';
   ],
 })
 export class FormErrorsComponent {
-  @Input() form: FormGroup;
+  @Input() form: UntypedFormGroup;
 
   readonly util = Util;
 
