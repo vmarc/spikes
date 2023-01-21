@@ -1,13 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
 import {
-  UntypedFormControl,
-  UntypedFormGroup,
+  FormControl,
+  FormGroup,
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MessageService } from '../shared/message.service';
 import { Util } from '../shared/util';
+
+interface Page1Form {
+  firstName?: FormControl<string>;
+  lastName?: FormControl<string>;
+  selected?: FormControl<boolean>;
+}
 
 @Component({
   selector: 'app-page1',
@@ -156,17 +162,17 @@ export class Page1Component {
   firstNameClasses2 = '';
   lastNameClasses2 = '';
 
-  readonly firstName = new UntypedFormControl('', [
+  readonly firstName = new FormControl<string>('', [
     this.firstNameValidator(),
     Validators.required,
   ]);
-  readonly lastName = new UntypedFormControl('', [
+  readonly lastName = new FormControl<string>('', [
     this.lastNameValidator(),
     Validators.required,
   ]);
-  readonly selected = new UntypedFormControl(null, [Validators.required]);
+  readonly selected = new FormControl<boolean>(null, [Validators.required]);
 
-  readonly form = new UntypedFormGroup({
+  readonly form = new FormGroup<Page1Form>({
     firstName: this.firstName,
     lastName: this.lastName,
     selected: this.selected,

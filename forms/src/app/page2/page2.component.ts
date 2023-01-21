@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { UntypedFormGroup } from '@angular/forms';
-import { UntypedFormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { MessageService } from '../shared/message.service';
 import { Util } from '../shared/util';
@@ -17,11 +17,11 @@ import { Util } from '../shared/util';
     <form [formGroup]="form">
       <div class="fields">
         <label>First name</label>
-        <input appInput #first [formControl]="firstName" />
+        <input appInput #first [formControl]="firstName"/>
         <app-field-errors [control]="firstName"></app-field-errors>
 
         <label>Last name</label>
-        <input appInput #last [formControl]="lastName" />
+        <input appInput #last [formControl]="lastName"/>
         <app-field-errors [control]="lastName"></app-field-errors>
       </div>
 
@@ -93,15 +93,16 @@ export class Page2Component {
   firstNameClasses2 = '';
   lastNameClasses2 = '';
 
-  readonly firstName = new UntypedFormControl('', Validators.required);
-  readonly lastName = new UntypedFormControl('', Validators.required);
+  readonly firstName = new FormControl<string>('', Validators.required);
+  readonly lastName = new FormControl<string>('', Validators.required);
 
-  readonly form = new UntypedFormGroup({
+  readonly form = new FormGroup({
     firstName: this.firstName,
     lastName: this.lastName,
   });
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService) {
+  }
 
   submit(): void {
     if (this.form.valid) {
