@@ -12,17 +12,17 @@ import { Util } from '../shared/util';
   template: `
     <h1>Page 2 - form regular field validation</h1>
 
-    <app-menu></app-menu>
+    <app-menu/>
 
     <form [formGroup]="form">
       <div class="fields">
         <label>First name</label>
         <input appInput #first [formControl]="firstName"/>
-        <app-field-errors [control]="firstName"></app-field-errors>
+        <app-field-errors [control]="firstName"/>
 
         <label>Last name</label>
         <input appInput #last [formControl]="lastName"/>
-        <app-field-errors [control]="lastName"></app-field-errors>
+        <app-field-errors [control]="lastName"/>
       </div>
 
       <button mat-raised-button (click)="submit()" color="primary">
@@ -59,11 +59,11 @@ import { Util } from '../shared/util';
         <div *ngIf="firstNameClasses1">
           <p>
             firstName classes =
-            <app-classes [classes]="firstNameClasses1"></app-classes>
+            <app-classes [classes]="firstNameClasses1"/>
           </p>
           <p>
             lastName classes =
-            <app-classes [classes]="lastNameClasses1"></app-classes>
+            <app-classes [classes]="lastNameClasses1"/>
           </p>
         </div>
       </div>
@@ -72,11 +72,11 @@ import { Util } from '../shared/util';
         <div *ngIf="firstNameClasses2">
           <p>
             firstName classes =
-            <app-classes [classes]="firstNameClasses2"></app-classes>
+            <app-classes [classes]="firstNameClasses2"/>
           </p>
           <p>
             lastName classes =
-            <app-classes [classes]="lastNameClasses2"></app-classes>
+            <app-classes [classes]="lastNameClasses2"/>
           </p>
         </div>
       </div>

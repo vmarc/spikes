@@ -15,7 +15,7 @@ class Row {
   template: `
     <h1>Page 3 - form table validation</h1>
 
-    <app-menu></app-menu>
+    <app-menu/>
 
     <div class="buttons">
       <button mat-raised-button (click)="add()">Add</button>
@@ -34,7 +34,7 @@ class Row {
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
 
-        <app-form-errors [form]="form"></app-form-errors>
+        <app-form-errors [form]="form"/>
 
         <button
           mat-raised-button

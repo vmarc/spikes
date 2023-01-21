@@ -20,7 +20,7 @@ interface Page1Form {
   template: `
     <h1>Page 1 - form material field validation</h1>
 
-    <app-menu></app-menu>
+    <app-menu/>
 
     <form [formGroup]="form">
       <p>
@@ -101,11 +101,11 @@ interface Page1Form {
         <div *ngIf="firstNameClasses1">
           <p>
             firstName classes =
-            <app-classes [classes]="firstNameClasses1"></app-classes>
+            <app-classes [classes]="firstNameClasses1"/>
           </p>
           <p>
             lastName classes =
-            <app-classes [classes]="lastNameClasses1"></app-classes>
+            <app-classes [classes]="lastNameClasses1"/>
           </p>
         </div>
       </div>
@@ -114,11 +114,11 @@ interface Page1Form {
         <div *ngIf="firstNameClasses2">
           <p>
             firstName classes =
-            <app-classes [classes]="firstNameClasses2"></app-classes>
+            <app-classes [classes]="firstNameClasses2"/>
           </p>
           <p>
             lastName classes =
-            <app-classes [classes]="lastNameClasses2"></app-classes>
+            <app-classes [classes]="lastNameClasses2"/>
           </p>
         </div>
       </div>

@@ -13,25 +13,25 @@ import { selectPage6State } from './store/page6.selectors';
   template: `
     <h1>Page 6 - form ngrx</h1>
 
-    <app-menu></app-menu>
+    <app-menu/>
 
     <form [formGroup]="form">
       <div class="fields">
         <label>Field 1</label>
         <input appInput [formControl]="field1" />
-        <app-field-errors [control]="field1"></app-field-errors>
+        <app-field-errors [control]="field1"/>
 
         <label>Field 2</label>
         <input appInput [formControl]="field2" />
-        <app-field-errors [control]="field2"></app-field-errors>
+        <app-field-errors [control]="field2"/>
 
         <label>Field 3</label>
         <input appInput [formControl]="field3" />
-        <app-field-errors [control]="field3"></app-field-errors>
+        <app-field-errors [control]="field3"/>
 
         <label>Field 4</label>
         <input appInput [formControl]="field4" />
-        <app-field-errors [control]="field4"></app-field-errors>
+        <app-field-errors [control]="field4"/>
       </div>
 
       <button mat-raised-button (click)="submit()" color="primary">

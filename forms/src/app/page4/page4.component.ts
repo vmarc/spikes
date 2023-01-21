@@ -12,17 +12,17 @@ import { Util } from '../shared/util';
   template: `
     <h1>Page 4 - form controls in child components</h1>
 
-    <app-menu></app-menu>
+    <app-menu/>
 
     <form [formGroup]="form">
       <div class="fields">
         <label>First name</label>
         <input appInput #first [formControl]="firstName"/>
-        <app-field-errors [control]="firstName"></app-field-errors>
+        <app-field-errors [control]="firstName"/>
 
         <label>Last name</label>
         <input appInput #last [formControl]="lastName"/>
-        <app-field-errors [control]="lastName"></app-field-errors>
+        <app-field-errors [control]="lastName"/>
       </div>
 
       <div class="select-sub">
@@ -33,9 +33,9 @@ import { Util } from '../shared/util';
         </mat-radio-group>
       </div>
 
-      <app-sub-1 *ngIf="sub === 'sub1'"></app-sub-1>
-      <app-sub-2 *ngIf="sub === 'sub2'"></app-sub-2>
-      <app-sub-3 *ngIf="sub === 'sub3'"></app-sub-3>
+      <app-sub-1 *ngIf="sub === 'sub1'"/>
+      <app-sub-2 *ngIf="sub === 'sub2'"/>
+      <app-sub-3 *ngIf="sub === 'sub3'"/>
 
       <button mat-raised-button (click)="submit()" color="primary">
         Submit

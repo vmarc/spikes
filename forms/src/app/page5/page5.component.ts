@@ -10,20 +10,20 @@ import { MessageService } from '../shared/message.service';
   template: `
     <h1>Page 5 - form controls in child component</h1>
 
-    <app-menu></app-menu>
+    <app-menu/>
 
     <form [formGroup]="form">
       <div class="fields">
         <label>Field 1</label>
         <input appInput #first [formControl]="field1" />
-        <app-field-errors [control]="field1"></app-field-errors>
+        <app-field-errors [control]="field1"/>
 
         <label>Field 2</label>
         <input appInput #last [formControl]="field2" />
-        <app-field-errors [control]="field2"></app-field-errors>
+        <app-field-errors [control]="field2"/>
       </div>
 
-      <app-sub-5></app-sub-5>
+      <app-sub-5/>
 
       <button mat-raised-button (click)="submit()" color="primary">
         Submit

@@ -11,11 +11,11 @@ import { FormGroup } from '@angular/forms';
     <div class="fields">
       <label>Field 11</label>
       <input appInput [formControl]="field11"/>
-      <app-field-errors [control]="field11"></app-field-errors>
+      <app-field-errors [control]="field11"/>
 
       <label>Field 12</label>
       <input appInput #last [formControl]="field12"/>
-      <app-field-errors [control]="field12"></app-field-errors>
+      <app-field-errors [control]="field12"/>
     </div>
   `,
 })

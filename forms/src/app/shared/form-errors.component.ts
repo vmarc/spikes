@@ -22,7 +22,7 @@ import { Util } from './util';
   ],
 })
 export class FormErrorsComponent {
-  @Input() form: FormGroup<string>;
+  @Input() form: FormGroup;
 
   readonly util = Util;
 
