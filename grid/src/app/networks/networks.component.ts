@@ -11,8 +11,7 @@ import { NetworksService } from './networks.service';
         [rowData]="response.result?.networks"
         [columnDefs]="columnDefs"
         domLayout="autoHeight"
-      >
-      </ag-grid-angular>
+      />
     </div>
   `,
 })

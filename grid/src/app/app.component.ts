@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'grid-root',
   template: `
-    <grid-menu></grid-menu>
+    <grid-menu/>
     <div class="page">
-      <router-outlet></router-outlet>
+      <router-outlet/>
     </div>
   `,
   styles: [

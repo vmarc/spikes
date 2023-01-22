@@ -10,10 +10,10 @@ import { NetworksService } from './networks/networks.service';
 import { PagingComponent } from './paging/paging.component';
 import { Table3Component } from './table3/table3.component';
 import { Table4Component } from './table4/table4.component';
-import { MatTabsModule } from '@angular/material/tabs';
 import { MenuComponent } from './shared/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -21,9 +21,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AgGridModule.withComponents([]),
-    MatTabsModule,
+    AgGridModule,
     MatPaginatorModule,
+    MatTabsModule,
   ],
   declarations: [
     AppComponent,
