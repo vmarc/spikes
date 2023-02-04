@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, map } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 
 export interface Message {
@@ -34,6 +35,25 @@ export class ChatService {
     messages: [],
   });
   private rooms$ = new BehaviorSubject<string[]>([]);
+
+  chatAppData$: Observable<ChatAppData> = combineLatest([
+    this.activeRoom$,
+    this.chatRoom$,
+    this.connected$,
+    this.rooms$,
+    this.user$,
+  ]).pipe(
+    map((value) => {
+      const [activeRoom, chatRoom, connected, rooms, user] = value;
+      return {
+        activeRoom,
+        chatRoom,
+        connected,
+        rooms,
+        user,
+      };
+    })
+  );
 
   constructor() {
     this.client = io(this.url, {autoConnect: false});
@@ -94,27 +114,6 @@ export class ChatService {
     this.leaveRoom(this.activeRoom$.value);
     this.client.disconnect();
     this.user$.next('');
-  }
-
-  getChatAppData(): Observable<ChatAppData> {
-    return combineLatest([
-      this.activeRoom$,
-      this.chatRoom$,
-      this.connected$,
-      this.rooms$,
-      this.user$,
-    ]).pipe(
-      map((value) => {
-        const [activeRoom, chatRoom, connected, rooms, user] = value;
-        return {
-          activeRoom,
-          chatRoom,
-          connected,
-          rooms,
-          user,
-        };
-      })
-    );
   }
 
   private joinRoom(room: string) {
