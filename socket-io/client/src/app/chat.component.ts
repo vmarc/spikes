@@ -1,6 +1,7 @@
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
-import { ChatAppData, ChatService } from './chat.service';
+import { ChatService } from './chat.service';
+import { ChatAppData } from './domain/chat-app-data';
 
 @Component({
   selector: 'app-chat',

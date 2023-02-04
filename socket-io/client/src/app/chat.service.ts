@@ -2,24 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BehaviorSubject, combineLatest, map } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
-
-export interface Message {
-  user: string;
-  content: string;
-}
-
-export interface ChatRoom {
-  users: string[];
-  messages: Message[];
-}
-
-export interface ChatAppData {
-  activeRoom: string;
-  chatRoom: ChatRoom;
-  connected: boolean;
-  rooms: string[];
-  user: string;
-}
+import { ChatAppData } from './domain/chat-app-data';
+import { ChatRoom } from './domain/chat-room';
+import { Message } from './domain/message';
 
 @Injectable({
   providedIn: 'root',
