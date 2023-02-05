@@ -1,14 +1,7 @@
 import { Injectable } from '@nestjs/common';
-
-export interface Message {
-  user: string;
-  content: string;
-}
-
-export interface ChatRoom {
-  users: string[];
-  messages: Message[];
-}
+import { Logger } from '@nestjs/common';
+import { ChatRoom } from './chat-room';
+import { Message } from './message';
 
 @Injectable()
 export class ChatService {
@@ -19,7 +12,10 @@ export class ChatService {
     NestJS: { users: [], messages: [] },
   };
 
+  private readonly logger = new Logger('ChatService');
+
   identify(user: string, clientId: string) {
+    this.logger.log(` user=${user}: identify clientId=${clientId}`);
     this.users[user] = clientId;
   }
 
@@ -33,6 +29,7 @@ export class ChatService {
         return;
       }
     });
+    this.logger.log(`user=${userToRemove}: disconnect clientId=${clientId}`);
     if (userToRemove) {
       delete this.users[userToRemove];
       // remove user from any joined rooms
@@ -45,6 +42,7 @@ export class ChatService {
   }
 
   joinRoom(room: string, user: string) {
+    this.logger.log(`user=${user}: joinRoom room=${room}`);
     this.chatRooms[room].users.push(user);
     // sort the users alphabetically
     this.chatRooms[room].users.sort((a, b) => {
@@ -53,6 +51,7 @@ export class ChatService {
   }
 
   leaveRoom(room: string, user: string) {
+    this.logger.log(`user=${user}: leaveRoom room=${room}`);
     this.chatRooms[room].users = this.chatRooms[room].users.filter(
       (u) => u !== user,
     );
@@ -63,11 +62,11 @@ export class ChatService {
   }
 
   getChatRooms() {
-    const keys = Object.keys(this.chatRooms);
-    return keys;
+    return Object.keys(this.chatRooms);
   }
 
   addMessage(room: string, message: Message) {
+    this.logger.log(`user=${message.user}: addMessage room=${room}, content=${message.content}`);
     this.chatRooms[room].messages.push(message);
   }
 }
