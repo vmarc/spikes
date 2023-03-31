@@ -2,8 +2,10 @@ package log.tool.analyzers
 
 import log.tool.LogAnalysisContext
 import log.tool.LogRecord
+import org.springframework.stereotype.Component
 
-object AnalysisAnalyzer extends LogRecordAnalyzer {
+@Component
+class AnalysisAnalyzer extends LogRecordAnalyzer {
 
   private val patterns = Seq(
     """/(nl|en|fr|de)/node/\d+""".r, // old urls

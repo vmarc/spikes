@@ -7,11 +7,20 @@ import log.tool.analyzers.AssetAnalyzer
 import log.tool.analyzers.LogRecordAnalyzer
 import log.tool.analyzers.RobotAnalyzer
 import log.tool.analyzers.TileAnalyzer
+import org.springframework.stereotype.Component
 
 import scala.annotation.tailrec
 import scala.io.Source
 
-class LogAnalyzer() {
+@Component
+class LogAnalyzer(
+  robotAnalyzer: RobotAnalyzer, // this has to be done first!
+  analysisAnalyzer: AnalysisAnalyzer,
+  apiAnalyzer: ApiAnalyzer,
+  applicationAnalyzer: ApplicationAnalyzer,
+  assetAnalyzer: AssetAnalyzer,
+  tileAnalyzer: TileAnalyzer
+) {
 
   def analyze(filename: String, logfile: String): Unit = {
     var robotRequestCount = 0
@@ -40,12 +49,12 @@ class LogAnalyzer() {
 
   private def analyze(record: LogRecord, context: LogAnalysisContext): LogAnalysisContext = {
     val analyzers = List(
-      RobotAnalyzer, // this has to be done first!
-      AnalysisAnalyzer,
-      ApiAnalyzer,
-      ApplicationAnalyzer,
-      AssetAnalyzer,
-      TileAnalyzer
+      robotAnalyzer, // this has to be done first!
+      analysisAnalyzer,
+      apiAnalyzer,
+      applicationAnalyzer,
+      assetAnalyzer,
+      tileAnalyzer
     )
     doAnalyze(analyzers, record, context)
   }

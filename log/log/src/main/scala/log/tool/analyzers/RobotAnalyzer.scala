@@ -2,8 +2,10 @@ package log.tool.analyzers
 
 import log.tool.LogAnalysisContext
 import log.tool.LogRecord
+import org.springframework.stereotype.Component
 
-object RobotAnalyzer extends LogRecordAnalyzer {
+@Component
+class RobotAnalyzer extends LogRecordAnalyzer {
 
   def analyze(record: LogRecord, context: LogAnalysisContext): LogAnalysisContext = {
     if (isRobot(record)) {

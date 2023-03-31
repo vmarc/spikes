@@ -35,6 +35,12 @@
         </dependency>
 
         <dependency>
+            <groupId>nl.basjes.parse.useragent</groupId>
+            <artifactId>yauaa</artifactId>
+            <version>7.17.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.13</artifactId>
             <version>3.3.0-SNAP3</version>

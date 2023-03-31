@@ -2,8 +2,10 @@ package log.tool.analyzers
 
 import log.tool.LogAnalysisContext
 import log.tool.LogRecord
+import org.springframework.stereotype.Component
 
-object AssetAnalyzer extends LogRecordAnalyzer {
+@Component
+class AssetAnalyzer extends LogRecordAnalyzer {
 
   def analyze(record: LogRecord, context: LogAnalysisContext): LogAnalysisContext = {
     if (record.path.contains("/assets/") || record.path.endsWith("favicon.ico")) {

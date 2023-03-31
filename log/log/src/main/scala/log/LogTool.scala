@@ -1,25 +1,21 @@
 package log
 
 import log.tool.LogAnalyzer
-import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.context.ApplicationContext
 
-
-object LogApplication {
+object LogTool {
   def main(args: Array[String]): Unit = {
-    val app: Array[Class[_]] = Array(classOf[LogApplication])
+    val app: Array[Class[_]] = Array(classOf[LogTool])
     SpringApplication.run(app, args)
   }
 }
 
 @SpringBootApplication
-class LogApplication() extends CommandLineRunner {
-  private val log = LoggerFactory.getLogger(classOf[LogApplication])
-
+class LogTool(context: ApplicationContext) extends CommandLineRunner {
   override def run(args: String*): Unit = {
-    log.info("start")
-    new LogAnalyzer().analyze("/kpn/logs/nginx-access.log", "be")
+    context.getBean[LogAnalyzer](classOf[LogAnalyzer]).analyze("/kpn/logs/nginx-access.log", "be")
   }
 }
