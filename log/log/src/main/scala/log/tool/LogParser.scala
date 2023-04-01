@@ -12,7 +12,7 @@ class LogParser {
     val time_local = tokens(3)
     val request = tokens(4)
     val status = tokens(5)
-    // val body_bytes_sent = tokens(6)
+    val body_bytes_sent = tokens(6)
     // val http_referer = tokens(7)
     val http_user_agent = tokens(8)
 
@@ -21,6 +21,7 @@ class LogParser {
       time_local, // TODO date
       time_local, // TODO time
       status,
+      body_bytes_sent,
       request, // path,
       http_user_agent
     )
