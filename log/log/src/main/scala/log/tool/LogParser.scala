@@ -17,6 +17,7 @@ class LogParser {
     val http_user_agent = tokens(8)
 
     LogRecord(
+      line,
       time_local, // TODO date
       time_local, // TODO time
       status,

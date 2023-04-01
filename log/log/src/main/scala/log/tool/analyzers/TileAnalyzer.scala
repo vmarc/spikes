@@ -8,9 +8,8 @@ import org.springframework.stereotype.Component
 class TileAnalyzer extends LogRecordAnalyzer {
 
   def analyze(record: LogRecord, context: LogAnalysisContext): LogAnalysisContext = {
-    if (record.path.startsWith("/tiles/")) {
-      val key = if (context.recordAnalysis.robot) "tile-robot" else "tile"
-      context.withValue(key).copy(recordAnalysis = context.recordAnalysis.copy(tile = true))
+    if (record.path.startsWith("GET /tiles/") || record.path.startsWith("GET /tiles-history/")) {
+      context.withValue("tile")
     }
     else {
       context

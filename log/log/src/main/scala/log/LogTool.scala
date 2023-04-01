@@ -1,6 +1,7 @@
 package log
 
 import log.tool.LogAnalyzer
+import log.tool.LogReport
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -14,8 +15,11 @@ object LogTool {
 }
 
 @SpringBootApplication
-class LogTool(context: ApplicationContext) extends CommandLineRunner {
+class LogTool(applicationContext: ApplicationContext) extends CommandLineRunner {
   override def run(args: String*): Unit = {
-    context.getBean[LogAnalyzer](classOf[LogAnalyzer]).analyze("/kpn/logs/nginx-access.log", "be")
+    val logAnalyzer = applicationContext.getBean[LogAnalyzer](classOf[LogAnalyzer])
+    val logReport = applicationContext.getBean[LogReport](classOf[LogReport])
+    val context = logAnalyzer.analyze("/kpn/logs/short.log")
+    logReport.report(context)
   }
 }
