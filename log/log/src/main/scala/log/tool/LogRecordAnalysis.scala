@@ -2,5 +2,6 @@ package log.tool
 
 case class LogRecordAnalysis(
   deviceClass: String = "",
-  deviceName: String = ""
+  deviceName: String = "",
+  requestType: String = ""
 )

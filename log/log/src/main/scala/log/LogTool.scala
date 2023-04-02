@@ -19,7 +19,7 @@ class LogTool(applicationContext: ApplicationContext) extends CommandLineRunner 
   override def run(args: String*): Unit = {
     val logAnalyzer = applicationContext.getBean[LogAnalyzer](classOf[LogAnalyzer])
     val logReport = applicationContext.getBean[LogReport](classOf[LogReport])
-    val context = logAnalyzer.analyze("/kpn/logs/nl-access.log")
+    val context = logAnalyzer.analyze("/kpn/logs/nginx-access.log")
     logReport.report(context)
   }
 }

@@ -10,6 +10,7 @@ class RequestAnalyzer extends LogRecordAnalyzer {
   private val applicationPatterns1 = Seq(
     """GET / HTTP/1\.[01]""".r,
     """(GET|HEAD) /(nl|en|fr|de)/ HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/(nl|be|de|fr|at|es) HTTP/1\.[01]""".r,
     """GET /(nl|en|fr|de)/ngsw\.json.* HTTP/1\.[01]""".r, // TODO investigate why this is issued by the app
   )
 
@@ -32,32 +33,32 @@ class RequestAnalyzer extends LogRecordAnalyzer {
     """GET /(nl|en|fr|de)/changes HTTP/1\.[01]""".r, // old urls
     """GET /(nl|en|fr|de)/glossary HTTP/1\.[01]""".r, // old urls
 
-    """GET /(nl|en|fr|de)/analysis HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/overview HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/changes.* HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/node/\d+ HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/node/\d+/map HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/node/\d+/changes HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/overview HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/changes.* HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/node/\d+ HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/node/\d+/map HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/node/\d+/changes HTTP/1\.[01]""".r,
     """(GET|HEAD) /(nl|en|fr|de)/analysis/route/\d+ HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/route/\d+/map HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/route/\d+/changes.* HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/network/\d+ HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/network/\d+/map.* HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/route/\d+/map HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/route/\d+/changes.* HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/network/\d+ HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/network/\d+/map.* HTTP/1\.[01]""".r,
     """(GET|HEAD) /(nl|en|fr|de)/analysis/network/\d+/facts HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/network/\d+/nodes HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/network/\d+/routes HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/network/\d+/changes.* HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/(cycling|hiking|horse-riding|motorboat|canoe|inlineskating)/.* HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/analysis/changeset/\d+/\d+ HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/ HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/settings HTTP/1\.[01]""".r,
-    """GET /(nl|en|fr|de)/about HTTP/1\.[01]""".r,
-    """GET /robots.txt HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/network/\d+/nodes HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/network/\d+/routes HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/network/\d+/changes.* HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/(cycling|hiking|horse-riding|motorboat|canoe|inlineskating)/.* HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/analysis/changeset/\d+/\d+ HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/ HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/settings HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/about HTTP/1\.[01]""".r,
+    """(GET|HEAD) /robots.txt HTTP/1\.[01]""".r,
 
-    """GET /(nl|en|fr|de)/map.* HTTP/1\.[01]""".r, // planner
+    """(GET|HEAD) /(nl|en|fr|de)/map.* HTTP/1\.[01]""".r, // planner
     """(GET|HEAD) /(nl|en|fr|de)/map/(cycling|hiking|horse-riding|motorboat|canoe|inline-skating).* HTTP/1\.[01]""".r, // planner
 
-    """GET /(nl|en|fr|de)/manifest.json HTTP/1\.[01]""".r,
+    """(GET|HEAD) /(nl|en|fr|de)/manifest.json HTTP/1\.[01]""".r,
 
     """GET /(nl|en|fr|de)/authenticate.* HTTP/1\.[01]""".r,
   )
@@ -79,6 +80,8 @@ class RequestAnalyzer extends LogRecordAnalyzer {
     """.*\.php HTTP/1\.[01]""".r,
     """.*\.php~ HTTP/1\.[01]""".r,
     """.*\.php.bak HTTP/1\.[01]""".r,
+    """.*\.php.old HTTP/1\.[01]""".r,
+    """.*\.php.swp HTTP/1\.[01]""".r,
     """.*\.php.save HTTP/1\.[01]""".r,
     """.*\.php\?.* HTTP/1\.[01]""".r,
     """.*\.gz HTTP/1\.[01]""".r,
@@ -87,6 +90,7 @@ class RequestAnalyzer extends LogRecordAnalyzer {
     """.*\.rar HTTP/1\.[01]""".r,
     """.*\.txt HTTP/1\.[01]""".r,
     """.*\.xml HTTP/1\.[01]""".r,
+    """.*\.swp HTTP/1\.[01]""".r,
     """.*\.db HTTP/1\.[01]""".r,
     """.*\.dmp HTTP/1\.[01]""".r,
     """.*\.dump HTTP/1\.[01]""".r,
@@ -108,7 +112,6 @@ class RequestAnalyzer extends LogRecordAnalyzer {
     """.*cmd=echo.* HTTP/1\.[01]""".r,
     """.*do.call.* HTTP/1\.[01]""".r,
     """.*select\(.* HTTP/1\.[01]""".r,
-    """GET /fr/fr.* HTTP/1\.1""".r,
     //    """.*.* HTTP/1\.[01]""".r,
   )
 
@@ -152,7 +155,9 @@ class RequestAnalyzer extends LogRecordAnalyzer {
         context.unknownRequests
       }
 
+      val recordAnalysis = context.recordAnalysis.copy(requestType = requestType)
       context.withValue(requestType).copy(
+        recordAnalysis = recordAnalysis,
         unknownRequests = unknownRequests
       )
     }

@@ -1,5 +1,6 @@
 package log.tool
 
+import log.tool.analyzers.ApiAnalyzer
 import log.tool.analyzers.HackerAnalyzer
 import log.tool.analyzers.LogRecordAnalyzer
 import log.tool.analyzers.RequestAnalyzer
@@ -15,7 +16,8 @@ class LogAnalyzer(
   userAgentAnalyzer: UserAgentAnalyzer,
   robotAnalyzer: RobotAnalyzer,
   hackerAnalyzer: HackerAnalyzer,
-  requestAnalyzer: RequestAnalyzer
+  requestAnalyzer: RequestAnalyzer,
+  apiAnalyzer: ApiAnalyzer
 ) {
 
   def analyze(filename: String): LogAnalysisContext = {
@@ -24,7 +26,7 @@ class LogAnalyzer(
     var context: LogAnalysisContext = LogAnalysisContext()
     source.getLines().foreach { line =>
       val record = parser.parse(line)
-      context = analyze(record, context)
+      context = analyze(record, context.copy(recordAnalysis = LogRecordAnalysis()))
     }
     source.close()
     context
@@ -35,7 +37,8 @@ class LogAnalyzer(
       userAgentAnalyzer,
       robotAnalyzer,
       hackerAnalyzer,
-      requestAnalyzer
+      requestAnalyzer,
+      apiAnalyzer
     )
     doAnalyze(analyzers, record, context)
   }
