@@ -9,8 +9,11 @@ class ApiAnalyzer extends LogRecordAnalyzer {
 
   def analyze(record: LogRecord, context: LogAnalysisContext): LogAnalysisContext = {
     if (context.recordAnalysis.requestType == "api") {
-      println("API " + record.line)
+      val session = record.remoteAddress + " " + record.userAgent
+      context.withApi(session, record.time + " " + record.request)
     }
-    context
+    else {
+      context
+    }
   }
 }

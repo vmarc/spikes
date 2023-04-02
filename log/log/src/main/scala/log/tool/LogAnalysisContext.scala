@@ -8,6 +8,7 @@ case class LogAnalysisContext(
   acceptedHackerRequests: Seq[String] = Seq.empty,
   unknownDeviceRequests: Seq[String] = Seq.empty,
   unknownRequests: Seq[String] = Seq.empty,
+  sessions: Map[String, Seq[String]] = Map.empty
 ) {
 
   def withValue(valueKey: String): LogAnalysisContext = {
@@ -25,8 +26,9 @@ case class LogAnalysisContext(
     copy(robotCounts = newRobotCounts)
   }
 
-  def newRecord(): LogAnalysisContext = {
-    copy(recordAnalysis = LogRecordAnalysis())
+  def withApi(session: String, request: String): LogAnalysisContext = {
+    val newSessions = sessions.updated(session, sessions.getOrElse(session, Seq.empty) :+ request)
+    copy(sessions = newSessions)
   }
 
   def isRobot: Boolean = {
@@ -36,5 +38,4 @@ case class LogAnalysisContext(
   def isHacker: Boolean = {
     recordAnalysis.deviceClass == "Hacker"
   }
-
 }

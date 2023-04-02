@@ -81,5 +81,18 @@ class LogReport() {
       }
       println("")
     }
+
+    println("\n## Session\n")
+    if (context.sessions.isEmpty) {
+      println("No sessions")
+    }
+    else {
+      println(s"${context.sessions.size} sessions:")
+      context.sessions.keys.toSeq.sorted.foreach { session =>
+        println(s"\n  $session")
+        context.sessions(session).foreach(request => println(s"    $request"))
+      }
+      println("")
+    }
   }
 }

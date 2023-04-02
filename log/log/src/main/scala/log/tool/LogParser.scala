@@ -6,7 +6,7 @@ class LogParser {
 
     val tokens = TokenSplitter.split(line)
 
-    // val remote_addr = tokens.head
+    val remote_addr = tokens.head
     // val dash = tokens(1)
     // val remote_user = tokens(2)
     val time_local = tokens(3)
@@ -18,6 +18,7 @@ class LogParser {
 
     LogRecord(
       line,
+      remote_addr,
       time_local, // TODO date
       time_local, // TODO time
       status,
