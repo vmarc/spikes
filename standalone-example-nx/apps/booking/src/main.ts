@@ -1,5 +1,5 @@
 import { LayoutModule } from '@angular/cdk/layout';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withLegacyInterceptors } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors /*, withLegacyInterceptors */} from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
@@ -23,7 +23,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(
       withInterceptors([authInterceptor]),
-      withLegacyInterceptors(),
+      //withLegacyInterceptors(),
     ),
     {
       provide: HTTP_INTERCEPTORS,
