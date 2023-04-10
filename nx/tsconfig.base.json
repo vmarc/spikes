@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-demo/analysis": ["libs/analysis/src/index.ts"],
+      "@nx-demo/api": ["libs/api/src/index.ts"],
+      "@nx-demo/monitor": ["libs/monitor/src/index.ts"],
+      "@nx-demo/planner": ["libs/planner/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
