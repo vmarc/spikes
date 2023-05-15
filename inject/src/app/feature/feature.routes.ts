@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { BottomComponent } from "./bottom.component";
 import { DemoService } from "../demo.service";
+import { FeatureComponent } from "./feature.component";
 import { TopComponent } from "./top.component";
 
 export const featureRoutes: Routes = [
@@ -10,6 +11,10 @@ export const featureRoutes: Routes = [
       DemoService
     ],
     children: [
+      {
+        path: '',
+        component: FeatureComponent,
+      },
       {
         path: '',
         component: TopComponent,

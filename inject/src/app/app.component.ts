@@ -7,6 +7,7 @@ import { DemoService } from "./demo.service";
   selector: 'app-root',
   template: `
     <a routerLink="feature">feature</a>
+    <router-outlet />
     <router-outlet name="top" />
     <router-outlet name="bottom" />
   `,

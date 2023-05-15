@@ -1,21 +1,18 @@
 import { Component } from '@angular/core';
 import { DemoService } from "../demo.service";
-import { TopSubComponent } from "./top-sub.component";
 
 @Component({
-  selector: 'app-top',
+  selector: 'app-feature',
   template: `
-    <p>top instanceId = {{instanceId}}</p>
-    <app-top-sub/>
+    <p>feature component instanceId = {{instanceId}}</p>
   `,
   standalone: true,
   imports: [
-    TopSubComponent
   ]
 })
-export class TopComponent {
+export class FeatureComponent {
   readonly instanceId = this.demoService.instanceId;
   constructor(private demoService: DemoService) {
-    console.log('TopComponent.constructor() instanceId=' + demoService.instanceId);
+      console.log('FeatureComponent.constructor() instanceId=' + demoService.instanceId);
   }
 }
