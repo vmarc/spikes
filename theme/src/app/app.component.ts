@@ -5,6 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import {MatListModule} from "@angular/material/list";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatSelectModule,
     MatCardModule,
+    MatListModule,
+    RouterLink,
   ],
 })
 export class AppComponent {

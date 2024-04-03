@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
@@ -12,7 +12,7 @@
   </button>
 </mat-toolbar>
 <main class="content">
-<!--  <app-banner type="info" message="This component will get own theme"></app-banner>-->
+  <!--  <app-banner type="info" message="This component will get own theme"></app-banner>-->
   <section class="sort-area">
     <mat-form-field class="drop-down">
       <mat-label>Choose a theme</mat-label>
@@ -42,5 +42,21 @@
         <button mat-button>SHARE</button>
       </mat-card-actions>
     </mat-card>
+    <mat-divider/>
+    <p>
+      <a href="https://knooppuntnet.nl">knooppuntnet</a>
+    </p>
+    <p>
+      <a mat-button color="primary" href="https://knooppuntnet.nl">knooppuntnet (primary)</a>
+    </p>
+    <p>
+      <a mat-button href="https://knooppuntnet.nl">knooppuntnet (default)</a>
+    </p>
+    <p>
+      <a mat-button color="accent" href="https://knooppuntnet.nl">knooppuntnet (accent)</a>
+    </p>
+    <p>
+      <a mat-button color="warn" href="https://knooppuntnet.nl">knooppuntnet (warn)</a>
+    </p>
   </section>
 </main>
