@@ -11,13 +11,18 @@ $knooppuntnet-theme: mat.define-light-theme((
   typography: mat.define-typography-config(
     $font-family: "Roboto, 'Helvetica Neue', sans-serif",
     $body-2: mat.define-typography-level(16px, 20px)
-  )
+  ),
+  //density: 0
 ));
 
 @include mat.all-component-themes($knooppuntnet-theme);
 @include mat.typography-hierarchy($knooppuntnet-theme);
 
 @debug $knooppuntnet-theme;
+
+.kpn-body {
+  @include mat.toolbar-density(-3);
+}
 
 html, body {
   height: 100%;
